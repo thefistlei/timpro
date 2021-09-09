@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<!--    <link rel="icon" href="http://192.168.1.108:5100/static/image/logo-title.png" type="image/x-icon">-->
+    <meta name="HandheldFriendly" content="true">
+    <title>区块列表</title>
+    <link href="./css/all.css" rel="stylesheet">
+    <link href="./css/public.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+<!--    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>-->
+    <script src="./js/axios.min.js"></script>
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<style> 
+.span{
+    color:blue;
+    font-weight:bold;
+}
+</style>
+</head>
+<body style="">
+<div id="app" class="web-font">
+    <div style="height: 100%;">
+        <div element-loading-text="数据加载中..." element-loading-background="rgba(0, 0, 0, 0.8)" style="height: 100%;">
+            <div>
+                <div class="nav-header">
+                    <div class="container">  
+<!--                        <div class="nav-menu" style="float: left;">-->
+<!--                            <div class="nav-menu-item nav-item" style="display: inline-block; width: 160px; text-align: right;">-->
+<!--                                <span>1</span>-->
+<!--                                <div class="nav-chainType">-->
+
+<!--                                </div>-->
+<!--                                <ul class="select1">-->
+<!--                                    <li style="cursor: default;">-->
+<!--                                        <span class="name">1</span>-->
+<!--                                    </li>-->
+<!--                                </ul>-->
+<!--                                <i class="el-icon-caret-bottom icon-up icon">-->
+<!--                                </i>-->
+<!--                                <i class="el-icon-caret-top icon-down icon"></i>-->
+<!--                            </div>-->
+<!--                        </div>--> 
+                    </div>
+                </div>
+            </div>
+            <div style="padding-top: 20px;"></div>
+            <div class="search-main main" style="height: auto;">
+                <div class="container">
+                    <div class="search-nav">
+                        <div class="hashInput">
+                            <div class="input-with-select el-input el-input-group el-input-group--append"><!---->
+                                <input type="text" autocomplete="off" placeholder="输入CID" class="el-input__inner" id="id-input-text">
+                                <div class="el-input-group__append">
+                                    <button type="button" class="el-button el-button--default" v-on:click="search_block()"><!---->
+                                        <i class="el-icon-search"></i><!---->
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-nav">
+                        <div class="title">文件 </div> 
+                    </div>                   
+                    <div class="search-table">
+                        <div class="el-table el-table--fit el-table--enable-row-hover el-table--enable-row-transition" element-loading-text="数据加载中..." element-loading-background="rgba(0, 0, 0, 0.8)">
+                            <div class="hidden-columns">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                            <div class="el-table__header-wrapper">
+                                <table cellspacing="0" cellpadding="0" border="0" class="el-table__header" style="width: 1351px;">
+                                    <colgroup>
+                                        <col name="el-table_22_column_98" width="749">
+                                        <col name="el-table_22_column_99" width="100">
+                                        <col name="el-table_22_column_100" width="100">
+                                        <col name="el-table_22_column_101" width="500">
+                                        <col name="gutter" width="0">
+                                    </colgroup>
+                                    <thead class="has-gutter">
+                                    <tr class="">
+                                        <th colspan="1" rowspan="1" class="el-table_22_column_98  is-center table-link  is-leaf">
+                                            <div class="cell">名称</div>
+                                        </th>
+                                        <th colspan="1" rowspan="1" class="el-table_22_column_99  is-center   is-leaf">
+                                            <div class="cell">文件大小</div>
+                                        </th>
+                                        <th colspan="1" rowspan="1" class="el-table_22_column_100  is-center table-link  is-leaf">
+                                            <div class="cell">状态</div>
+                                        </th>
+                                        <th colspan="1" rowspan="1" class="el-table_22_column_101  is-center   is-leaf">
+                                            <div class="cell">属性</div>
+                                        </th> 
+                                    </tr></thead>
+                                </table>
+                            </div>
+                            <div class="el-table__body-wrapper is-scrolling-none">
+                                <table id= "tableid" cellspacing="0" cellpadding="0" border="0" class="el-table__body" style="width: 1351px;">
+                                    <colgroup>
+                                        <col name="el-table_22_column_98" width="749">
+                                        <col name="el-table_22_column_99" width="100">
+                                        <col name="el-table_22_column_100" width="100">
+                                        <col name="el-table_22_column_101" width="500"> 
+                                    </colgroup>
+                                    <tbody>
+                                    <tr class="el-table__row" v-for="(todo, i) in server_list">
+                                        <td rowspan="1" colspan="1" class="el-table_22_column_98 is-center table-link">
+                                            <div class="cell el-tooltip" style="width: 748px;">
+                                                {{ todo.name }}
+                                            </div>
+                                        </td>
+                                        <td rowspan="1" colspan="1" class="el-table_22_column_99 is-center ">
+                                            <div class="cell el-tooltip" style="width: 100px;"> 
+                                                <span style="color: #ffffff">{{ todo.filesize }}</span> 
+                                            </div>
+                                        </td>
+                                        <td rowspan="1" colspan="1" class="el-table_22_column_100 is-center">
+                                            <div class="cell el-tooltip" style="width: 100px;">
+                                                <span style="color: #ffffff">{{ todo.state }}</span>
+                                            </div>
+                                        </td>
+                                        <td rowspan="1" colspan="1" class="el-table_22_column_101 is-center ">
+                                            <div class="cell el-tooltip" style="width: 500px;">
+                                                <span style="color: #ffffff">{{ todo.attr }}</span>
+                                            </div>
+                                        </td> 
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div> 
+                        </div>
+                       <div class="content-nav">
+                         <br>
+                         <div class="title">文件CID上区块链 </div> 
+                       </div>      
+                       <div class="content-nav">
+                         <br> 
+                       </div>    
+
+                       <div class="el-table el-table--fit el-table--enable-row-hover el-table--enable-row-transition" element-loading-text="数据加载中..." element-loading-background="rgba(0, 0, 0, 0.8)">              
+                            <div class="el-table__header-wrapper" id= "div1">                             
+                                 <table border="0">   
+                                        <tbody id="tb">  
+                                        </tbody>  
+                                 </table>   
+                            </div>                        
+                      </div>  
+                </div>
+            </div>
+        </div> <!---->
+    </div>
+</div>
+<script src="./js/block_list.js"></script>
+</body>
+</html>
