@@ -78,17 +78,26 @@ var app = new Vue({
             //txin and txout
             //
             var text = "<tr style='border: none;'><td>";
-            text += "<table width=1351 class = 'chtable'>\
+            text += "<table width=1351 border:0 class = 'chtable' id ='thetable'>\
             <colgroup><col width='200'>\
             <col width='601'>\
             </colgroup>\
             <tbody><tr width=1351px style='border: none;'>";
+      
 
-            text += "<tr><td>区块高度：</td><td>522</td></tr>";   
-            text += "<tr><td>区块哈希：</td><td>DADA9DA0000D9AD0A00000000000000000000000000000000</td></tr>";      
- 
-            text += "<tr><td>区块高度：</td><td>522</td></tr>";   
-            text += "<tr><td>区块哈希：</td><td>DADA9DA0000D9AD0A00000000000000000000000000000000</td></tr>";
+            text += "<tr><td style=\"border:0 none;\"> 区块高度：</td><td style=\"border:0 none;\">522</td>";
+            text += "<td style=\"border:0 none;\">区块哈希：</td><td style=\"border:0 none;\">DADA9DA0000D9AD0A00000000000000000000000000000000aa:</td></tr>";   
+               
+            text += "<tr><td style=\"border:0 none;\">区块时间：</td><td style=\"border:0 none;\"> 2021-09-10 20:05:02</td>";   
+            text += "<td style=\"border:0 none;\">区块数据：</td><td style=\"border:0 none;\"><input name=\"txtname\" type=\"text\"></td></tr>"; 
+
+            text += "<tr><td style=\"border:0 none;\">--------------------------------------</td></tr>"; 
+
+            text += "<tr><td style=\"border:0 none;\"> 区块高度：</td><td style=\"border:0 none;\">522</td>";
+            text += "<td style=\"border:0 none;\">区块哈希：</td><td style=\"border:0 none;\">DADA9DA0000D9AD0A00000000000000000000000000000000aa:</td></tr>";   
+               
+            text += "<tr><td style=\"border:0 none;\">区块时间：</td><td style=\"border:0 none;\"> 2021-09-10 20:05:02</td>";   
+            text += "<td style=\"border:0 none;\">区块数据：</td><td style=\"border:0 none;\"><input name=\"txtname\" type=\"text\"></td></tr>"; 
 
             //col table end
             text += "</tr></tbody></table>";  
