@@ -26,6 +26,12 @@ td{
 border-right: 
 }
 
+ 
+.rgba{
+    background-color: rgba(0,0,0,0.1);
+ 
+</style>
+
 </style>
 </head>
 <body style="">
@@ -72,7 +78,14 @@ border-right:
 
                     <div class="content-nav">
                         <div class="title">文件 </div> 
-                    </div>                   
+                     
+                        <div class="nav-menu"> 
+                            <div > 
+                                <button type="button" v-on:click="fileImport()"><!----> 
+                                文件导入</button> 
+                            </div>   
+                        </div> 
+                    </div>         
                     <div class="search-table">
                         <div class="el-table el-table--fit el-table--enable-row-hover el-table--enable-row-transition" element-loading-text="数据加载中..." element-loading-background="rgba(0, 0, 0, 0.8)">
                             <div class="hidden-columns">
@@ -152,7 +165,7 @@ border-right:
                          <br> 
                        </div>    
 
-                       <div class="el-table el-table--fit el-table--enable-row-hover el-table--enable-row-transition" element-loading-text="数据加载中..." element-loading-background="rgba(0, 0, 0, 0.8)">              
+                       <div class="el-table el-table--fit el-table--enable-row-hover el-table--enable-row-transition" element-loading-text="数据加载中..." element-loading-background="rgba(0.5, 0, 0, 0)">              
                             <div class="el-table__header-wrapper" id= "div1">                             
                                  <table >   
                                         <tbody id="tb">  

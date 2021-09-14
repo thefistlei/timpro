@@ -78,26 +78,30 @@ var app = new Vue({
             //txin and txout
             //
             var text = "<tr style='border: none;'><td>";
-            text += "<table width=1351 border:0 class = 'chtable' id ='thetable'>\
-            <colgroup><col width='200'>\
-            <col width='601'>\
+            text += "<table width=1551 border:0 class = 'chtable' id ='thetable'>\
+            <colgroup><col width='100'>\
+            <col width='600'>\
+            <col width='100'>\
+            <col width='751'>\
             </colgroup>\
-            <tbody><tr width=1351px style='border: none;'>";
+            <tbody><tr width=1551px style='border: none;'>";
       
+            text += "<tr><td></td><td></td><td></td><td></td></tr>"; 
 
-            text += "<tr><td style=\"border:0 none;\"> 区块高度：</td><td style=\"border:0 none;\">522</td>";
+            text += "<tr><td style=\"border:0 none;\"> 区块高度</td><td style=\"border:0 none;\"> 522</td>";
             text += "<td style=\"border:0 none;\">区块哈希：</td><td style=\"border:0 none;\">DADA9DA0000D9AD0A00000000000000000000000000000000aa:</td></tr>";   
-               
-            text += "<tr><td style=\"border:0 none;\">区块时间：</td><td style=\"border:0 none;\"> 2021-09-10 20:05:02</td>";   
-            text += "<td style=\"border:0 none;\">区块数据：</td><td style=\"border:0 none;\"><input name=\"txtname\" type=\"text\"></td></tr>"; 
+                  
+            text += "<tr><td style=\"border:0 none;\">区块数据：</td><td height=\"200px\" style=\"border:0 none;\"><input name=\"txtname\" type=\"text\" style=\"width:400px;height:200px;border: 1px solid;\" ></td>"; 
+            text += "<td style=\"border:0 none;\">数据：</td><td height=\"200px\" style=\"border:0 none;\"><input name=\"txtname\" type=\"text\" style=\"width:400px;height:200px;border: 1px solid;\" ></td></tr>"; 
 
-            text += "<tr><td style=\"border:0 none;\">--------------------------------------</td></tr>"; 
+            text += "<tr><td></td><td></td><td></td><td></td></tr>";
 
-            text += "<tr><td style=\"border:0 none;\"> 区块高度：</td><td style=\"border:0 none;\">522</td>";
+            text += "<tr><td style=\"border:0 none;\"> 区块高度</td><td style=\"border:0 none;\"> 522</td>";
             text += "<td style=\"border:0 none;\">区块哈希：</td><td style=\"border:0 none;\">DADA9DA0000D9AD0A00000000000000000000000000000000aa:</td></tr>";   
-               
-            text += "<tr><td style=\"border:0 none;\">区块时间：</td><td style=\"border:0 none;\"> 2021-09-10 20:05:02</td>";   
-            text += "<td style=\"border:0 none;\">区块数据：</td><td style=\"border:0 none;\"><input name=\"txtname\" type=\"text\"></td></tr>"; 
+                  
+            text += "<tr><td style=\"border:0 none;\">区块数据：</td><td height=\"200px\" style=\"border:0 none;\"><input name=\"txtname\" type=\"text\" style=\"width:400px;height:200px;border: 1px solid;\" ></td>"; 
+            text += "<td style=\"border:0 none;\">数据：</td><td height=\"200px\" style=\"border:0 none;\"><input name=\"txtname\" type=\"text\" style=\"width:400px;height:200px;border: 1px solid;\" ></td></tr>"; 
+
 
             //col table end
             text += "</tr></tbody></table>";  
